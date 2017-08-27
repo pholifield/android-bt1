@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.exph.app2" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Phil2</name>
+    <description>
+        An example from www.lynda.com Creative-Cloud-tutorials
+    </description>
+    <author email="support@phonegap.com" href="http://phonegap.com">
+        PhoneGap Team
+    </author>
+    <gap:platform name="android" />
+    <gap:plugin name="cordova-plugin-ble-central" source="npm" />
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="phonegap-version" value="cli-6.1.0" />
+</widget>
