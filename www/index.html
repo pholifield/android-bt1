@@ -12,8 +12,10 @@
 <script>
 $(document).on("pagecreate","#pageone",function(){
   $("#but1").on("tap",function(){
-    //$(this).hide();
-	alert("You clicked a button.");
+	// alert("You clicked a button.");
+	  ble.scan([], 5, function(device) {
+		  alert(JSON.stringify(device));
+	  }, failure);
   });                       
 });
 </script>
