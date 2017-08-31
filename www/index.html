@@ -9,17 +9,23 @@
 <script src="js/leaflet.js"></script>
 <script src="phonegap.js"></script>
 <script>
-$(document).on("pagecreate","#pageone",function(){
+	
+function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+	
+function onDeviceReady() {
   $("#but1").on("tap",function(){
 	// alert("You clicked a button.");
 	  ble.scan([], 5, function(device) {
 		console.log(JSON.stringify(device));
 		$("p").append(device.name);}  ,alert("Failed"));
   });                       
-});
+}
+	
 </script>
 </head>
-<body>
+<body onload="onLoad()">
 
 <div data-role="page" id="pageone">
   <div data-role="header">
