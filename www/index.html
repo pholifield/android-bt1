@@ -15,12 +15,11 @@ function onLoad() {
     }
 	
 function onDeviceReady() {
-  $("#but1").on("tap",function(){
-	// alert("You clicked a button.");
-	  ble.scan([], 5, function(device) {
-		console.log(JSON.stringify(device));
-		$("p").append(device.name);}  ,alert("Failed"));
-  });                       
+	  ble.scan([], 5, 
+		  function(device) {
+		  console.log(JSON.stringify(device));
+		  $("p").append(device.name);}, 
+		  alert("Failed"));                       
 }
 	
 </script>
