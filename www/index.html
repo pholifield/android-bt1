@@ -6,8 +6,9 @@
 <script src="js/jquery.js"></script>
 <script src="js/jquery.mobile.min.js"></script>
 <script>
-$(document).on("pagecreate","#pageone",function(){
-  document.addEventListener("deviceready", onDeviceReady, false); }
+function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
 	
   function onDeviceReady() {
         // Now safe to use device APIs
@@ -15,26 +16,12 @@ $(document).on("pagecreate","#pageone",function(){
 		console.log(JSON.stringify(device));
 		$("p").append(device.name);}, 
 		 alert("Failed"));
-    }                      
-};
+    }                     
+
 </script>
-	<script type="text/javascript" charset="utf-8">
 
-    // Wait for device API libraries to load
-    //
-    function onLoad() {
-        document.addEventListener("deviceready", onDeviceReady, false);
-    }
-
-    // device APIs are available
-    //
-    function onDeviceReady() {
-        // Now safe to use device APIs
-    }
-
-    </script>
 </head>
-<body>
+<body onload="onLoad()">
 
 <div data-role="page" id="pageone">
   <div data-role="header">
