@@ -6,7 +6,7 @@
 <script src="js/jquery.js"></script>
 <script src="js/jquery.mobile.min.js"></script>
 <script>
-$(document).on("load",function(){
+$(document).on("pagecreate","#pageone",function(){
   $("#but1").on("tap",function(){
 	// alert("You clicked a button.");
 	  ble.scan([], 5, function(device) {
