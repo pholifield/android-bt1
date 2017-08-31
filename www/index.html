@@ -9,16 +9,6 @@
 <script src="js/leaflet.js"></script>
 <script src="js/app.js"></script>
 <script src="phonegap.js"></script>
-<script>
-$(document).on("pagecreate","#pageone",function(){
-  $("#but1").on("tap",function(){
-	// alert("You clicked a button.");
-	  ble.scan([], 5, function(device) {
-		console.log(JSON.stringify(device));
-		$("p").append(device.name);}  ,alert("Failed"));
-  });                       
-});
-</script>
 </head>
 <body>
 
