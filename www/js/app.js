@@ -34,24 +34,27 @@ var app = {
     scan: function() {
         app.status("Scanning for Heart Rate Monitor");
 
-        var foundHeartRateMonitor = false;
+        var foundDevice = false;
 
         function onScan(peripheral) {
             // this is demo code, assume there is only one heart rate monitor
             console.log("Found " + JSON.stringify(peripheral));
-            foundHeartRateMonitor = true;
+            foundDevice = true;
+            $("p").append(peripheral.name);
 
-            ble.connect(peripheral.id, app.onConnect, app.onDisconnect);
+            //ble.connect(peripheral.id, app.onConnect, app.onDisconnect);
+            //do not try to connect
         }
 
         function scanFailure(reason) {
             alert("BLE Scan Failed");
         }
 
-        ble.scan([heartRate.service], 5, onScan, scanFailure);
+        //ble.scan([heartRate.service], 5, onScan, scanFailure);
+        ble.scan([], 5, onScan, scanFailure);     // look for any device
 
         setTimeout(function() {
-            if (!foundHeartRateMonitor) {
+            if (!foundDevice) {
                 app.status("Did not find a heart rate monitor.");
             }
         }, 5000);
