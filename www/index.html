@@ -6,18 +6,14 @@
 <script src="js/jquery.js"></script>
 <script src="js/jquery.mobile.min.js"></script>
 <script>
-function onLoad() {
-        document.addEventListener("deviceready", onDeviceReady, false);
-    }
-	
-  function onDeviceReady() {
-        // Now safe to use device APIs
-	ble.scan([], 5, function(device) {
+$(document).on("load",function(){
+  $("#but1").on("tap",function(){
+	// alert("You clicked a button.");
+	  ble.scan([], 5, function(device) {
 		console.log(JSON.stringify(device));
-		$("p").append(device.name);}, 
-		 alert("Failed"));
-    }                     
-
+		$("p").append(device.name);}  ,alert("Failed"));
+  });                       
+});
 </script>
 
 </head>
