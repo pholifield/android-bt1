@@ -4,9 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"  href="css/jquery.mobile.min.css">
 <script src="js/jquery.js"></script>
-<script src="js/map.js"></script>
 <script src="js/jquery.mobile.min.js"></script>
-<script src="js/leaflet.js"></script>
 <script src="phonegap.js"></script>
 <script>
 	
@@ -15,7 +13,7 @@ function onLoad() {
     }
 	
 function onDeviceReady() {
-	  ble.scan([], 5, 
+	  ble.scan([], 10, 
 		  function(device) {
 		  console.log(JSON.stringify(device));
 		  $("p").append(device.name);}, console.log("failed") );                       
