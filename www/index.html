@@ -13,8 +13,11 @@ function onLoad() {
     }
 	
 function onDeviceReady() {
-	  ble.scan([], 10, listDetails(device), console.log("failed") );                       
-}
+	  ble.scan([], 5, function(device) {
+		console.log(JSON.stringify(device));
+		$("p").append(device.name + " " + device.id + "<br/>");} , console.log("Failed"));
+	}
+	
 function listDetails(device) {
 	console.log(JSON.stringify(device));
 	$("p").append(device.name); $("p").append(device.id); $("p").append(device.rssi);
