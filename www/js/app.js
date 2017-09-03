@@ -51,7 +51,7 @@ var app = {
         }
 
         //ble.scan([healthThermometer.service], 5, onScan, scanFailure);
-        ble.scan([], 5, onScan, scanFailure);     // look for any device
+        ble.scan([healthThermometer.service], 5, onScan, scanFailure);     // look for any device
 
         setTimeout(function() {
             if (!foundDevice) {
