@@ -18,7 +18,7 @@
 // See BLE heart rate service http://goo.gl/wKH3X7
 var heartRate = {
     service: '180d',
-    measurement: '2a37'
+    measurement: '2a1c'
 };
 
 var app = {
