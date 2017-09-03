@@ -32,7 +32,7 @@ var app = {
         app.scan();
     },
     scan: function() {
-        app.status("Scanning for Health Thermometer");
+        app.status("Scanning for Health Thermometer <br/>");
 
         var foundDevice = false;
 
@@ -40,7 +40,7 @@ var app = {
             // this is demo code, assume there is only one heart rate monitor
             console.log("Found " + JSON.stringify(peripheral));
             foundDevice = true;
-            $("p").append(peripheral.name);
+            $("p").append(peripheral.name + " " + peripheral.id + "<br/>");
 
             //ble.connect(peripheral.id, app.onConnect, app.onDisconnect);
             //do not try to connect
