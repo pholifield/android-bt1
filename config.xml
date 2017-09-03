@@ -9,7 +9,7 @@
     </author>
 	
 	<gap:platform name="android" />
-	<gap:plugin name="cordova-plugin-ble-central" source="npm" />
+	<gap:plugin name="cordova-plugin-ble-central" spec="1.1.4" source="npm" />
 	<preference name="phonegap-version" value="cli-6.1.0" />
 	
     <content src="index.html" />
