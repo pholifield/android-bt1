@@ -18,9 +18,7 @@ function onLoad() {
 function onDeviceReady() {
 	  ble.scan([healthThermometer.service], 5, function(device) {
 		console.log(JSON.stringify(device));
-		$("p").append(device.name + " " + device.id + "<br/>");	  } 
-		   , console.log("Failed"));
-		
+		$("p").append(device.name + " " + device.id + "<br/>");	} , console.log("Failed"));
 	}
 	
 function listDetails(device) {
