@@ -8,15 +8,15 @@
 <script src="phonegap.js"></script>
 <script>
 var healthThermometer = {
-    service: '1809',
-    measurement: '2a1c'
+    service: '1809'
+    //measurement: '2a37'
 };	
 function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
     }
 	
 function onDeviceReady() {
-	  ble.scan([healthThermometer], 5, function(device) {
+	  ble.scan([healthThermometer.service], 5, function(device) {
 		console.log(JSON.stringify(device));
 		$("p").append(device.name + " " + device.id + "<br/>");} , console.log("Failed"));
 	}
