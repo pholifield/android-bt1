@@ -63,7 +63,8 @@ var app = {
     },
     onDisconnect: function(reason) {
         alert("Disconnected " + reason);
-        currentTemp.innerHTML = "...";
+        // currentTemp.innerHTML = "...";
+        currentTemp.innerHTML = data[1];
         app.status("Disconnected");
     },
     onData: function(buffer) {
