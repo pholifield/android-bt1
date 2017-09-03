@@ -15,7 +15,7 @@
 /* global ble, statusDiv, beatsPerMinute */
 /* jshint browser: true , devel: true*/
 
-// See BLE heart rate service http://goo.gl/wKH3X7
+// See BLE health thermometer specification
 var healthThermometer = {
     service: '1809',
     measurement: '2a1c'
@@ -37,21 +37,19 @@ var app = {
         var foundDevice = false;
 
         function onScan(peripheral) {
-            // this is demo code, assume there is only one heart rate monitor
+            // this is demo code, assume there is only one Health Thermometer
             console.log("Found " + JSON.stringify(peripheral));
             foundDevice = true;
             $("p").append(peripheral.name + " " + peripheral.id + "<br/>");
 
-            //ble.connect(peripheral.id, app.onConnect, app.onDisconnect);
-            //do not try to connect
+            ble.connect(peripheral.id, app.onConnect, app.onDisconnect);
         }
 
         function scanFailure(reason) {
             alert("BLE Scan Failed");
         }
-
-        //ble.scan([healthThermometer.service], 5, onScan, scanFailure);
-        ble.scan([healthThermometer.service], 5, onScan, scanFailure);     // look for any device
+        
+        ble.scan([healthThermometer.service], 5, onScan, scanFailure);     
 
         setTimeout(function() {
             if (!foundDevice) {
@@ -65,14 +63,14 @@ var app = {
     },
     onDisconnect: function(reason) {
         alert("Disconnected " + reason);
-        beatsPerMinute.innerHTML = "...";
+        currentTemp.innerHTML = "...";
         app.status("Disconnected");
     },
     onData: function(buffer) {
         // assuming heart rate measurement is Uint8 format, real code should check the flags
         // See the characteristic specs http://goo.gl/N7S5ZS
         var data = new Uint8Array(buffer);
-        beatsPerMinute.innerHTML = data[1];
+        currentTemp.innerHTML = data[1];
     },
     onError: function(reason) {
         alert("There was an error " + reason);
