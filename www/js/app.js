@@ -16,8 +16,8 @@
 /* jshint browser: true , devel: true*/
 
 // See BLE heart rate service http://goo.gl/wKH3X7
-var heartRate = {
-    service: '180d',
+var healthThermometer = {
+    service: '1809',
     measurement: '2a1c'
 };
 
@@ -32,7 +32,7 @@ var app = {
         app.scan();
     },
     scan: function() {
-        app.status("Scanning for Heart Rate Monitor");
+        app.status("Scanning for Health Thermometer");
 
         var foundDevice = false;
 
@@ -50,18 +50,18 @@ var app = {
             alert("BLE Scan Failed");
         }
 
-        //ble.scan([heartRate.service], 5, onScan, scanFailure);
+        //ble.scan([healthThermometer.service], 5, onScan, scanFailure);
         ble.scan([], 5, onScan, scanFailure);     // look for any device
 
         setTimeout(function() {
             if (!foundDevice) {
-                app.status("Did not find a heart rate monitor.");
+                app.status("Did not find a Health Thermometer");
             }
         }, 5000);
     },
     onConnect: function(peripheral) {
         app.status("Connected to " + peripheral.id);
-        ble.startNotification(peripheral.id, heartRate.service, heartRate.measurement, app.onData, app.onError);
+        ble.startNotification(peripheral.id, healthThermometer.service, healthThermometer.measurement, app.onData, app.onError);
     },
     onDisconnect: function(reason) {
         alert("Disconnected " + reason);
