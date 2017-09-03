@@ -19,7 +19,7 @@ function onDeviceReady() {
 	  ble.scan([healthThermometer.service], 10, function(device) {
 		console.log(JSON.stringify(device));
 		$("p").append(device.name + " " + device.id + "<br/>");
-		  
+		ble.connect(device.id, $("p").append("Connected");, $("p").append("Disconnected"););  
 	  } , console.log("Failed"));
 	}
 	
