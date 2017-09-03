@@ -79,7 +79,8 @@ var app = {
     },
     status: function(message) {
         console.log(message);
-        statusDiv.innerHTML = message;
+        //statusDiv.innerHTML = message;
+         $("p").append(message);
     }
 };
 
