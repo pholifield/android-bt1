@@ -9,7 +9,7 @@
 <script>
 var healthThermometer = {
     service: '1809'
-    //measurement: '2a37'
+    measurement: '2a1c'
 };	
 function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
@@ -18,8 +18,11 @@ function onLoad() {
 function onDeviceReady() {
 	  ble.scan([healthThermometer.service], 5, function(device) {
 		console.log(JSON.stringify(device));
-		$("p").append(device.name + " " + device.id + "<br/>");} , console.log("Failed"));
-		ble.connect(device.id, $("p").append("Connected <br/>");, $("p").append("Disconnected <br/>"););
+		$("p").append(device.name + " " + device.id + "<br/>");
+	  	ble.connect(device.id, $("p").append("Connected <br/>");, $("p").append("Disconnected <br/>"););
+	  } 
+		   , console.log("Failed"));
+		
 	}
 	
 function listDetails(device) {
