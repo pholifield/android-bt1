@@ -64,14 +64,14 @@ var app = {
     onDisconnect: function(reason) {
         alert("Disconnected " + reason);
         // currentTemp.innerHTML = "...";
-        currentTemp.innerHTML = data[1];
+        currentTemp.innerHTML = data[1] + 256*data[2];
         app.status("Disconnected");
     },
     onData: function(buffer) {
         // assuming heart rate measurement is Uint8 format, real code should check the flags
         // See the characteristic specs http://goo.gl/N7S5ZS
         var data = new Uint8Array(buffer);
-        currentTemp.innerHTML = data[1];
+        currentTemp.innerHTML = data[1] + 256*data[2];
     },
     onError: function(reason) {
         alert("There was an error " + reason);
