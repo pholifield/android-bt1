@@ -60,6 +60,10 @@ var app = {
     onConnect: function(peripheral) {
         app.status("Connected to " + peripheral.id);
         ble.startNotification(peripheral.id, healthThermometer.service, healthThermometer.measurement, app.onData, app.onError);
+        // Function `startNotification` registers a callback that is called *every time* the value of a characteristic changes. 
+        // This method handles both `notifications` and `indications`. The success callback is called multiple times.
+        //  Raw data is passed from native code to the success callback as an [ArrayBuffer](#typed-arrays).
+        //  See [Background Notifications on iOS](#background-notifications-on-ios)
     },
     onDisconnect: function(reason) {
         alert("Disconnected " + reason);
