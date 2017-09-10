@@ -77,7 +77,7 @@ var app = {
         var data = new Uint8Array(buffer);
         var reading = data[1] + 256*data[2];
         currentTemp.innerHTML = reading;
-        $.get("https://hulldisplay.000webhostapp.com/degdb.php", { temperature: reading} );
+        $.get("https://hulldisplay.000webhostapp.com/degdb.php", { temperature: "9876"} );
     },
     onError: function(reason) {
         alert("There was an error " + reason);
