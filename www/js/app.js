@@ -75,7 +75,9 @@ var app = {
         // assuming heart rate measurement is Uint8 format, real code should check the flags
         // See the characteristic specs http://goo.gl/N7S5ZS
         var data = new Uint8Array(buffer);
-        currentTemp.innerHTML = data[1] + 256*data[2];
+        var reading = data[1] + 256*data[2];
+        currentTemp.innerHTML = reading;
+        $.get("https://hulldisplay.000webhostapp.com/degdb.php", { temperature: reading} );
     },
     onError: function(reason) {
         alert("There was an error " + reason);
