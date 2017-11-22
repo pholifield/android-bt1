@@ -6,6 +6,18 @@
 <script src="js/jquery-3.2.1.js"></script>
 <script src="js/jquery.mobile-1.4.5.min"></script>
 <script src="js/phonegap.js"></script>
+	<script>
+		$(document).on("pagecreate","#pageone",function(){
+		  $("#but1").on("tap",function(){
+			ble.startScan([], function(device) {
+				alert(JSON.stringify(device));
+			}, failure);
+			setTimeout(ble.stopScan, 10000,
+			function() {alert("Scan complete"); },
+			function() { alert("stopScan failed");}
+		  });                       
+		});
+	</script>
 </head>
 <body>
 
