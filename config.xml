@@ -1,21 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.exph.app2" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Phil2</name>
+<widget id="com.euxton.BT-Temp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>BT-Temp</name>
     <description>
-        An example from www.lynda.com Creative-Cloud-tutorials
+        Phonegap App scans for BLE temp, connects and updates temp
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
+    <author email="phil@euxton.com" href="http://euxton.com">
         PhoneGap Team
     </author>
 	
 	<gap:platform name="android" />
-	<gap:plugin name="cordova-plugin-ble-central" spec="1.1.4" source="npm" />
-	<preference name="phonegap-version" value="cli-6.1.0" />
-	<!-- Allow links to example.com -->
-	<allow-navigation href="https://hulldisplay.000webhostapp.com/*" />
-	<!-- Allow links to web pages to open in a browser -->
-        <allow-intent href="https://hulldisplay.000webhostapp.com/*" />
-	
+	<gap:plugin name="cordova-plugin-ble-central" spec="1.1.4" source="npm" />	
     <content src="index.html" />
     <access origin="*" />
 </widget>
