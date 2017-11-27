@@ -78,6 +78,7 @@ var app = {
         var data = new Uint8Array(buffer);
         var reading = data[1] + 256*data[2];
         currentTemp.innerHTML = reading;
+        /* Comment out the post to php page
         var  formData = {temperature: reading};  //Name value Pair to POST
         $.ajax({
         type: 'POST',
@@ -93,7 +94,7 @@ var app = {
             console.log(data);
             alert('There was an error adding your comment');
         }
-        });
+        });     */
     },
     onError: function(reason) {
         alert("There was an error " + reason);
