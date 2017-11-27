@@ -76,7 +76,7 @@ var app = {
         // See the characteristic specs http://goo.gl/N7S5ZS
         var  formData = {temperature: reading};  //Name value Pair
         var data = new Uint8Array(buffer);
-        var reading = data[1] + 256*data[2];
+        var reading = (data[1] + 256*data[2])/100;
         currentTemp.innerHTML = reading;
         /* Comment out the post to php page
         var  formData = {temperature: reading};  //Name value Pair to POST
