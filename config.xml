@@ -11,6 +11,11 @@
 	<gap:platform name="android" />
 	<gap:plugin name="cordova-plugin-ble-central" spec="1.1.4" source="npm" />	
     <content src="index.html" />
-    <access origin="*" />
+    <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
+    <allow-navigation href="http://*/*" />
+    <allow-intent href="http://*/*" />
+    <platform name="android" />		
+    <content src="index.html" />
+    <access origin="*" subdomains="true" />
 </widget>
 
