@@ -84,7 +84,7 @@ var app = {
         data: formData,
         crossDomain: true,
         cache: false,
-        url: 'http://192.168.1.71:8080/phil/pollypost.php',
+        url: 'http://192.168.1.71:8080/phil/post2db.php',
         success: function(data){
             console.log(data);
             alert('Your comment was successfully added: ' + data);
