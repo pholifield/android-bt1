@@ -74,10 +74,11 @@ var app = {
     onData: function(buffer) {
         // assuming heart rate measurement is Uint8 format, real code should check the flags
         // See the characteristic specs http://goo.gl/N7S5ZS
-        var  formData = {name: "Donald Duck"};  //Name value Pair
+        var  formData = {temperature: reading};  //Name value Pair
         var data = new Uint8Array(buffer);
         var reading = data[1] + 256*data[2];
         currentTemp.innerHTML = reading;
+        var  formData = {temperature: reading};  //Name value Pair to POST
         $.ajax({
         type: 'POST',
         data: formData,
