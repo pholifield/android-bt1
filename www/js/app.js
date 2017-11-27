@@ -74,10 +74,25 @@ var app = {
     onData: function(buffer) {
         // assuming heart rate measurement is Uint8 format, real code should check the flags
         // See the characteristic specs http://goo.gl/N7S5ZS
+        var  formData = {name: "Donald Duck"};  //Name value Pair
         var data = new Uint8Array(buffer);
         var reading = data[1] + 256*data[2];
         currentTemp.innerHTML = reading;
-        $.post("https://hulldisplay.000webhostapp.com/degdbp.php", {temperature: "789"});
+        $.ajax({
+        type: 'POST',
+        data: formData,
+        crossDomain: true,
+        cache: false,
+        url: 'http://192.168.1.71:8080/phil/pollypost.php',
+        success: function(data){
+            console.log(data);
+            alert('Your comment was successfully added: ' + data);
+        },
+        error: function(){
+            console.log(data);
+            alert('There was an error adding your comment');
+        }
+        });
     },
     onError: function(reason) {
         alert("There was an error " + reason);
